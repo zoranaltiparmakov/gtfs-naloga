@@ -1,6 +1,10 @@
 package trip;
 
 import org.junit.jupiter.api.Test;
+import trip.models.Arrival;
+import trip.models.StopSchedule;
+import trip.views.StopScheduleMapper;
+import trip.views.StopScheduleView;
 
 import java.time.ZonedDateTime;
 import java.util.List;
@@ -14,8 +18,8 @@ class StopScheduleMapperTest {
         String relativeTimeFormat = "\\d+ min";
 
         StopSchedule stopSchedule = new StopSchedule("STOP 1", List.of(
-                new StopSchedule.Arrival("Route 1", ZonedDateTime.now()),
-                new StopSchedule.Arrival("Route 1", ZonedDateTime.now())
+                new Arrival("Route 1", ZonedDateTime.now()),
+                new Arrival("Route 1", ZonedDateTime.now())
         ));
 
         StopScheduleView stopScheduleView = StopScheduleMapper.toView(stopSchedule, TimeFormatEnum.RELATIVE);
@@ -30,8 +34,8 @@ class StopScheduleMapperTest {
         String relativeTimeFormat = "^([01]\\d|2[0-3]):([0-5]\\d)$";
 
         StopSchedule stopSchedule = new StopSchedule("STOP 1", List.of(
-                new StopSchedule.Arrival("Route 1", ZonedDateTime.now()),
-                new StopSchedule.Arrival("Route 1", ZonedDateTime.now())
+                new Arrival("Route 1", ZonedDateTime.now()),
+                new Arrival("Route 1", ZonedDateTime.now())
         ));
 
         StopScheduleView stopScheduleView = StopScheduleMapper.toView(stopSchedule, TimeFormatEnum.ABSOLUTE);

@@ -1,5 +1,8 @@
 import tools.jackson.databind.ObjectMapper;
 import trip.*;
+import trip.models.StopSchedule;
+import trip.views.StopScheduleMapper;
+import trip.views.StopScheduleView;
 
 import java.time.Clock;
 

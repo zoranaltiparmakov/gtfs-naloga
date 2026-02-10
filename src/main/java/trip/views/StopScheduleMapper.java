@@ -1,4 +1,7 @@
-package trip;
+package trip.views;
+
+import trip.models.StopSchedule;
+import trip.TimeFormatEnum;
 
 import java.time.Clock;
 import java.time.Duration;

@@ -1,4 +1,4 @@
-package trip;
+package trip.views;
 
 import java.util.List;
 

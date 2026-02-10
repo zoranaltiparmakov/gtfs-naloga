@@ -21,8 +21,15 @@
 #### 2. App
     GTFS files are present locally on disk.
     Application is a console app, using CLI to call busTrips method to get list of next bus stops.
-    For time of the schedules, respect user/system timezone.
+    For time of the schedules, respect timezone of the source (agency) and show time based on the client/system timezone.
     Arrivals should be sorted by time in ascending order, as it is default with all sorts of transport (airports, bus stops, etc.).
 
 # Recommendations to make it more challenging
-#### 1. Agency should be taken into account for the timezone
+- Larger datasets and parallelism (Java Executor service) to speed up the process by batching file processing (logical file split)
+- Use geolocation to find nearby stations and their schedule
+
+# Where AI helped:
+- Inspiration for stopSchedule method implementation and StopScheduleMapper
+
+# Resources:
+https://stackoverflow.com/questions/72018171/filtering-from-csv-files-using-java-stream/72019209#72019209

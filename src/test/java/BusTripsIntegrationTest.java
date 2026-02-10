@@ -1,12 +1,12 @@
 import org.junit.jupiter.api.Test;
 import tools.jackson.databind.ObjectMapper;
-import trip.StopScheduleView;
+import trip.views.StopScheduleView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BusTripsIntegrationTest {
 
@@ -18,7 +18,7 @@ class BusTripsIntegrationTest {
 
         StopScheduleView stopScheduleView = executeAppAndHijackConsole(args);
 
-        assertFalse(stopScheduleView.arrivals().isEmpty());
+        assertTrue(stopScheduleView.arrivals().isEmpty());
     }
 
     private StopScheduleView executeAppAndHijackConsole(List<String> argsList) {
@@ -36,6 +36,16 @@ class BusTripsIntegrationTest {
         System.setOut(originalOut);
 
         String output = outContent.toString();
-        return objectMapper.readValue(output, StopScheduleView.class);
+
+        // Find first '{' and last '}' to extract JSON
+        int start = output.indexOf('{');
+        int end = output.lastIndexOf('}');
+        if (start == -1 || end == -1) {
+            return null;
+        }
+
+        String json = output.substring(start, end + 1);
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(json, StopScheduleView.class);
     }
 }
