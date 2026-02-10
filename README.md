@@ -1,6 +1,6 @@
 # Requirements
 #### 1. Display next buses arriving at a given stop
-#### 2. Only consider buses arriving within the next 2h from the time of the query
+#### 2. Only consider buses arriving within the next 2h **from the time of the query**
 #### 3. Efficient memory usage
 #### 4. Input: busTrips <station_id> <num_buses_per_line> <relative|absolute>
 ##### Parameters:
@@ -11,7 +11,7 @@
   - relative: time until arrival (e.g., 10 min)
 #### 5. Output:
 - Name of the stop
-- For each route, up to N upcoming arrivals within the next 2h
+- For each route, up to N upcoming arrivals within the next 2h from the **current system time**
 - Display times in the format selected by the user (absolute or relative)
 
 # Assumptions
@@ -22,3 +22,7 @@
     GTFS files are present locally on disk.
     Application is a console app, using CLI to call busTrips method to get list of next bus stops.
     For time of the schedules, respect user/system timezone.
+    Arrivals should be sorted by time in ascending order, as it is default with all sorts of transport (airports, bus stops, etc.).
+
+# Recommendations to make it more challenging
+#### 1. Agency should be taken into account for the timezone
