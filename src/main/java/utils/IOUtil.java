@@ -1,17 +1,15 @@
 package utils;
 
-import trip.BusTripsLocalService;
-
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public final class Util {
+public final class IOUtil {
 
-    public static Path getGtfsResourcePath(String gtfsResource) {
-        URL resource = BusTripsLocalService.class.getClassLoader().getResource("gtfs/" + gtfsResource + ".txt");
+    public static Path getResourcePathFromUrl(String urlPath) {
+        URL resource = GtfsUtil.class.getClassLoader().getResource(urlPath);
         if (resource == null) {
             throw new RuntimeException("Path not found.");
         }

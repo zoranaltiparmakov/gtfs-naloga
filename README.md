@@ -16,7 +16,7 @@
 
 # Assumptions
 #### 1. Data
-    There can be 10.000+ routes with millions of stop time combined (millions of rows in stop_times file).
+    There can be 10.000+ routes with millions of stop times combined (millions of rows in stop_times file).
     Feed size (all GTFS files) can be 50-500+ MB in size
 #### 2. App
     GTFS files are present locally on disk.
@@ -26,10 +26,12 @@
 
 # Recommendations to make it more challenging
 - Larger datasets and parallelism (Java Executor service) to speed up the process by batching file processing (logical file split)
-- Use geolocation to find nearby stations and their schedule
+- Use geolocation to find nearby stations and their schedule, based on gtfs lat/lon data
+- Use of directions (inbound/outbound)
 
 # Where AI helped:
 - Inspiration for stopSchedule method implementation and StopScheduleMapper
 
 # Resources:
 https://stackoverflow.com/questions/72018171/filtering-from-csv-files-using-java-stream/72019209#72019209
+https://gtfs.org/documentation/schedule/reference

@@ -3,7 +3,7 @@ package trip.models;
 import java.time.ZoneId;
 
 public record Stop(
-        Integer id,
+        Integer stopId,
         String name,
         ZoneId timezone
 ) {}

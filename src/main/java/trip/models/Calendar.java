@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public record Calendar(
         String serviceId,
-        boolean[] days, // [Mon..Sun]
+        Boolean[] days, // [Mon..Sun]
         LocalDate start,
         LocalDate end
 ) {}

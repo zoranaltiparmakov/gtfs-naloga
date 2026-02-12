@@ -1,7 +1,7 @@
 ﻿trip_id,arrival_time,departure_time,stop_id,stop_sequence,stop_headsign,pickup_type,drop_off_type,shape_dist_traveled,timepoint
 NORMAL_03_101_Return_22:10,22:10:00,22:10:00,2,1,,,,,
 NORMAL_03_101_Return_22:10,22:17:38,22:17:38,3,2,,,,,
-NORMAL_03_103_Go_07now :20,07:20:00,07:20:00,10,1,,,,,
+NORMAL_03_103_Go_07:20,07:20:00,07:20:00,10,1,,,,,
 NORMAL_03_103_Go_07:20,07:33:59,07:33:59,9,2,,,,,
 NORMAL_03_104_Return_21:15,21:15:00,21:15:00,11,1,,,,,
 NORMAL_03_104_Return_21:15,21:26:21,21:26:21,10,2,,,,,

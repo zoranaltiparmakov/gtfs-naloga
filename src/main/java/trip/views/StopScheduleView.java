@@ -1,13 +1,15 @@
 package trip.views;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 public record StopScheduleView(
         String stopName,
-        List<ArrivalView> arrivals
+        Map<String, List<ArrivalView>> arrivals
 ) {
-    public record ArrivalView(
-            String route,
-            String time
-    ) {}
+    public StopScheduleView {
+        stopName = Objects.requireNonNull(stopName, "stopName cannot be null");
+        if (arrivals == null) arrivals = Map.of();
+    }
 }

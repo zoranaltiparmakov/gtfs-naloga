@@ -1,8 +1,4 @@
 ﻿stop_id,stop_code,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type,parent_station,stop_timezone,wheelchair_boarding
-1,1234,Metelkova,,,,,,,,,
-2,1235,UKC,,,,,,,,,
-3,1236,LIDL-Trzaska,,,,,,,,,
-4,1237,Hofer-Qulandia,,,,,,,,,
 2,2001,AL Masjid Al-nabawi (Clock Roundabout),,24.47141,39.61112,,,,,,
 3,2002,Uhud battlefield,,24.50056,39.6115,,,,,,
 4,2003,Al Quiblatain Mosque,,24.48463,39.57871,,,,,,

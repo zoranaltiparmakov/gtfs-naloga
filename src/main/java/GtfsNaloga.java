@@ -3,14 +3,21 @@ import trip.*;
 import trip.models.StopSchedule;
 import trip.views.StopScheduleMapper;
 import trip.views.StopScheduleView;
+import utils.GtfsDataLoader;
 
+import java.io.IOException;
 import java.time.Clock;
 
 public class GtfsNaloga {
 
-    private static final BusTripsService busTripsService = new BusTripsLocalService(Clock.systemDefaultZone());
+    // Using system default zone as a timezone (Europe/Ljubljana in this case)
+    private static final BusTripsService busTripsService =
+            new BusTripsLocalService(Clock.systemDefaultZone(), new GtfsDataLoader());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Waiting for VisualVM... Press Enter to continue.");
+        System.in.read(); // pauses until you press Enter
+
         if (args.length == 0) {
             System.err.println("No arguments found. See help.");
             printHelpAndExit();
@@ -59,6 +66,6 @@ public class GtfsNaloga {
                 Example: busTrips 1 4 relative
             
             """);
-        System.exit(5);
+        System.exit(1);
     }
 }

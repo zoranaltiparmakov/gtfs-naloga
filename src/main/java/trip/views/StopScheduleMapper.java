@@ -8,6 +8,8 @@ import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 // Normally would be on UI side to present data in different format, but for purposes of this task
 // I will make a mapper that will map Stop Schedule model into Stop Schedule View.
@@ -17,10 +19,21 @@ public class StopScheduleMapper {
             StopSchedule schedule,
             TimeFormatEnum timeFormat
     ) {
-        List<StopScheduleView.ArrivalView> mapped = schedule.arrivals()
-                .stream()
-                .map(arrival -> new StopScheduleView.ArrivalView(arrival.route(), mapDateTimeToRepresentation(arrival.dateTime(), timeFormat)))
-                .toList();
+        Map<String, List<ArrivalView>> mapped =
+                schedule.arrivals().entrySet().stream()
+                        .collect(Collectors.toMap(
+                                entry -> entry.getKey().routeId(), // or shortName(), your call
+                                entry -> entry.getValue().stream()
+                                        .map(arrival ->
+                                                new ArrivalView(
+                                                        mapDateTimeToRepresentation(
+                                                                arrival.dateTime(),
+                                                                timeFormat
+                                                        )
+                                                )
+                                        )
+                                        .toList()
+                        ));
 
         return new StopScheduleView(schedule.stopName(), mapped);
     }

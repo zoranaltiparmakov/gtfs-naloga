@@ -1,10 +1,4 @@
 ﻿route_id,service_id,trip_id,trip_headsign,trip_short_name,direction_id,block_id,shape_id,wheelchair_accessible,bikes_allowed,duty,duty_sequence_number,run_sequence_number
-1000,2,TRIP_1,Center,,,,,,,,,
-1000,2,TRIP_2,Center,,,,,,,,,
-1000,2,TRIP_3,Trznica,,,,,,,,,
-1001,2,TRIP_4,Trznica,,,,,,,,,
-1002,3,TRIP_5,Trznica,,,,,,,,,
-1002,3,TRIP_6,Trznica,,,,,,,,,
 101,1,NORMAL_03_101_Return_22:10,Uhud battlefield,,1,101_03,41,,,101_032,24,48
 103,1,NORMAL_03_103_Go_07:20,AL Masjid Al-nabawi (Manakha Square),,1,103_01,125,,,103_011,5,5
 104,1,NORMAL_03_104_Return_21:15,Quba Mosque,,1,104_02,128,,,104_022,22,46
